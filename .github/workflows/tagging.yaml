@@ -16,14 +16,37 @@ jobs:
         with:
           token: ${{ secrets.PAT || secrets.GITHUB_TOKEN }}
           fetch-depth: 0
-      - name: Bump version and push tag
+      - name: Github Tag with semantic versioning
+        # You may pin to the exact commit or the version.
+        # uses: hennejg/github-tag-action@2cd21a8413aa58e36a69cb22e64d5ad20aeb9b99
         id: tag_version
-        uses: mathieudutour/github-tag-action@v6.0
+        uses: hennejg/github-tag-action@v4.3.1
         with:
-          github_token: ${{ secrets.PAT || secrets.GITHUB_TOKEN }}
+        # Required for permission to tag the repo.
+        github_token: ${{ secrets.PAT || secrets.GITHUB_TOKEN }}
+        default_bump: # optional, default is patch
+        tag_prefix: _ # optional, default is v
+      - name: Zip Release
+        # You may pin to the exact commit or the version.
+        # uses: TheDoctor0/zip-release@09336613be18a8208dfa66bd57efafd9e2685657
+        id: zip
+        uses: TheDoctor0/zip-release@0.6.2
+        with:
+          # Filename for archive
+          filename: XOAPApplicationPackagingDSC # default is release.zip
+          # Base path for archive files
+          path: # optional, default is .
+          # Working directory before zipping
+          directory: ./releases # optional, default is .
+          # List of excluded files / directories
+          exclusions: # optional, default is 
+          # List of excluded files / directories with recursive wildcards (only applies on Windows with `zip` type)
+          recursive_exclusions: # optional, default is 
+          # Tool to use for archiving
+          type: # optional, default is zip
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
         with:
           tag: ${{ steps.tag_version.outputs.new_tag }}
-          name: Release ${{ steps.tag_version.outputs.new_tag }}
+          name: ${{ steps.zip.outputs.name__steps.tag_version.outputs.new_tag }}
           body: ${{ steps.tag_version.outputs.changelog }}
