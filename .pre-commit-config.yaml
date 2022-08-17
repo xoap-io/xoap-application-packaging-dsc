@@ -24,30 +24,12 @@ repos:
       - id: mixed-line-ending
       - id: detect-private-key
       - id: pretty-format-json
-      - id: detect-aws-credentials
       - id: no-commit-to-branch
         args:
           - -b master
       - id: no-commit-to-branch
         args:
           - -b main
-  - repo: https://github.com/antonbabenko/pre-commit-terraform
-    rev: v1.62.0
-    hooks:
-      - id: terraform_fmt
-      - id: terraform_tflint
-        args:
-          - --args=--enable-plugin=aws
-      - id: terraform_docs
-        args:
-          - --hook-config=--path-to-file=README.md
-          - --hook-config=--add-to-existing-file=true
-          - --hook-config=--create-file-if-not-exist=true
-      - id: terraform_tfsec
-  - repo: https://github.com/Checkmarx/kics
-    rev: v1.5.4
-    hooks:
-      - id: kics
   - repo: https://github.com/sirosen/check-jsonschema
     rev: 0.13.0
     hooks:
