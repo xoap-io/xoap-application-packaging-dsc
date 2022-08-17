@@ -30,21 +30,13 @@ jobs:
         id: zip
         uses: TheDoctor0/zip-release@0.6.2
         with:
-          # Filename for archive
-          filename: XOAPApplicationPackagingDSC # default is release.zip
-          # Base path for archive files
-          path: # optional, default is .
-          # Working directory before zipping
-          directory: . # optional, default is .
-          # List of excluded files / directories
-          exclusions: # optional, default is 
-          # List of excluded files / directories with recursive wildcards (only applies on Windows with `zip` type)
-          recursive_exclusions: # optional, default is 
-          # Tool to use for archiving
-          type: # optional, default is zip
+          type: 'zip'
+          filename: 'XOAPApplicationPackagingDSC.zip'
+          exclusions: '*.git* /*License/* CONTRIBUTING.md CODEOWNERS.md CODE_OF_CONDUCT.md .pre-commit.yaml .gitignore .gitattributes .github'
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
         with:
+          artifacts: "release:${{ steps.tag_version.outputs.new_tag }}.zip"
           tag: ${{ steps.tag_version.outputs.new_tag }}
           name: ${{ steps.zip.outputs.name__steps.tag_version.outputs.new_tag }}
           body: ${{ steps.tag_version.outputs.changelog }}
