@@ -14,7 +14,7 @@ repos:
       - id: check-yaml
       - id: check-added-large-files
       - id: check-builtin-literals
-      - id: check-byte-order-marker
+      - id: fix-byte-order-marker
       - id: check-json
       - id: check-xml
       - id: check-yaml
@@ -23,7 +23,6 @@ repos:
       - id: check-symlinks
       - id: mixed-line-ending
       - id: detect-private-key
-      - id: pretty-format-json
       - id: no-commit-to-branch
         args:
           - -b master

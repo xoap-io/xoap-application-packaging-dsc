@@ -1,4 +1,4 @@
-configuration DSC_Shortcuts
+configuration DSC_PowerShell
 {
 
     #Import-DSCResource -ModuleName xPSDesiredStateConfiguration
@@ -14,4 +14,3 @@ configuration DSC_Shortcuts
     #}
 
 }
-
