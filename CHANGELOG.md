@@ -1,33 +1,34 @@
-# Changelog
+# Changelog for xoap-application-packaging-dsc
 
-All notable changes to this project will be documented in this file.
-
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+The format is based on and uses the types of changes according to [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [unreleased]
-
-- tbd
-
-## [0.0.1] - 2022-06-26
-
-### Changed
-
-- tdb
+## [Unreleased]
 
 ### Added
 
-- tdb
+- xoap-application-packaging-dsc
+  - Added automatic release with a new pipeline.
 
-### Fixed
+### Changed
 
-- tbd
+- xoap-application-packaging-dsc
+  - Add .gitattributes file to checkout file correctly with CRLF.
+  - Updated .vscode/analyzersettings.psd1 file to correct use PSSA rules
+    and custom rules in VS Code.
+
+### Deprecated
+
+- None
 
 ### Removed
 
-- tbd
+- None
+
+### Fixed
+
+- None
 
 ### Security
 
-- tbd
-
+- None

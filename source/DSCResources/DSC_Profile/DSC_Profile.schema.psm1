@@ -1,4 +1,4 @@
-configuration DSC_PowerShell
+configuration DSC_Profile
 {
 
     #Import-DSCResource -ModuleName xPSDesiredStateConfiguration
@@ -14,4 +14,3 @@ configuration DSC_PowerShell
     #}
 
 }
-
